@@ -1,5 +1,13 @@
 import './App.css'
+import WidgetQuote from './widgets/widget-quote/WidgetQuote'
+
 
 export default function App() {
-    return <article className="widget widget--quote">5 FEB "" keep it simple.</article>
+    const page = "quote"
+
+    if (page === "quote") {
+        return (
+            <WidgetQuote />
+        )
+    }
 }
