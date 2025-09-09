@@ -3,6 +3,7 @@ import './WidgetQuote.css'
 export default function WidgetQuote() {
     return (
         <article className="widget widget--quote">
+            <button type="button">To pooltime</button>
             <div className="header">
                 <span className="header__date">5</span>
                 <span className="header__month">&nbsp;FEB</span>
