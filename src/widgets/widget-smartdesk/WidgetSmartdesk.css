@@ -1,0 +1,56 @@
+.widget--smartdesk {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    background: linear-gradient(to bottom, #643F38, #351E1A);
+    padding: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    text-align: center;
+}
+
+.header__office {
+    font-size: 32px;
+    font-weight: 500;
+    color: #D3A096;
+}
+
+.header__heading {
+    font-size: 48px;
+    font-weight: 500;
+    color: #FBF6F5;
+}
+
+.header__duration_hours {
+    font-weight: 500;
+    font-size: 156px;
+    color: white;
+}
+
+.header__duration_seconds {
+    color: #D3EFFF;
+    font-size: 40px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 3px solid rgba(255, 255, 255, 0.4);
+    padding-top: 40px;
+    /* linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4) 49%, white 100%); */
+}
+
+.footer__heading {
+    width: 10ch;
+    color: white;
+    font-size: 56px;
+    font-weight: 500;
+}
+
+.footer__icon {
+    width: 72px;
+}
