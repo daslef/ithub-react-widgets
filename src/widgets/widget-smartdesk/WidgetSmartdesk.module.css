@@ -54,6 +54,9 @@
     font-size: 50px;
     color: #FBF6F5;
     cursor: pointer;
+    user-select: none;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .footer__button--left {
@@ -62,4 +65,9 @@
 
 .footer__button--right {
     border-bottom-right-radius: 80px;
+}
+
+.footer__button--disabled {
+    opacity: 0.2;
+    pointer-events: none;
 }

@@ -17,6 +17,3 @@ export default function App() {
     return pages[page]
 }
 
-// css modules
-// useState
-
