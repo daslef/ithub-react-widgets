@@ -11,8 +11,8 @@ import classes from './App.module.css'
 function Layout({children}) {
     return (
         <>
-            <button className={classes.button} type="button" onClick={() => props.setPage('quote')}>
-                <img src={homeIcon} alt="quote" className={classes.button__icon} />
+            <button className={classes.button} type="button" onClick={() => props.setPage('menu')}>
+                <img src={homeIcon} alt="home" className={classes.button__icon} />
             </button>
             {children}
         </>
@@ -23,10 +23,13 @@ export default function App() {
     const [page, setPage] = useState("menu")
 
     const pages = {
-        menu: <WidgetMenu setPage={setPage} />,
         quote: <WidgetQuote setPage={setPage} />,
         pooltime: <WidgetPooltime setPage={setPage} />,
         smartdesk: <WidgetSmartdesk setPage={setPage} />
+    }
+
+    if (page === "menu") {
+        return <WidgetMenu setPage={setPage} />
     }
 
     return <Layout>{pages[page]}</Layout>

@@ -1,13 +1,17 @@
 .button {
-    padding: 16px;
+    position: absolute;
+    left: 74px;
+    top: 74px;
+    padding: 12px;
     border-radius: 50%;
     user-select: none;
     cursor: pointer;
     border: 0;
+    z-index: 10;
 }
 
 .button__icon {
-    width: 64px;
+    width: 32px;
 }
 
 .button, .button__icon {
