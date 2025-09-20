@@ -8,13 +8,13 @@ import homeIcon from './assets/icons/home-3.svg'
 
 import classes from './App.module.css'
 
-function Layout({children}) {
+function Layout(props) {
     return (
         <>
             <button className={classes.button} type="button" onClick={() => props.setPage('menu')}>
                 <img src={homeIcon} alt="home" className={classes.button__icon} />
             </button>
-            {children}
+            {props.children}
         </>
     )
 }
@@ -23,15 +23,15 @@ export default function App() {
     const [page, setPage] = useState("menu")
 
     const pages = {
-        quote: <WidgetQuote setPage={setPage} />,
-        pooltime: <WidgetPooltime setPage={setPage} />,
-        smartdesk: <WidgetSmartdesk setPage={setPage} />
+        quote: <WidgetQuote />,
+        pooltime: <WidgetPooltime />,
+        smartdesk: <WidgetSmartdesk />
     }
 
     if (page === "menu") {
         return <WidgetMenu setPage={setPage} />
     }
 
-    return <Layout>{pages[page]}</Layout>
+    return <Layout setPage={setPage}>{pages[page]}</Layout>
 }
 
