@@ -3,6 +3,7 @@ import WidgetQuote from './widgets/widget-quote/WidgetQuote'
 import WidgetPooltime from './widgets/widget-pooltime/WidgetPooltime'
 import WidgetSmartdesk from './widgets/widget-smartdesk/WidgetSmartdesk'
 import WidgetMenu from './widgets/widget-menu/WidgetMenu'
+import WidgetBadday from './widgets/widget-badday/WidgetBadday'
 
 import homeIcon from './assets/icons/home-3.svg'
 
@@ -20,12 +21,13 @@ function Layout(props) {
 }
 
 export default function App() {
-    const [page, setPage] = useState("menu")
+    const [page, setPage] = useState("badday")
 
     const pages = {
         quote: <WidgetQuote />,
         pooltime: <WidgetPooltime />,
-        smartdesk: <WidgetSmartdesk />
+        smartdesk: <WidgetSmartdesk />,
+        badday: <WidgetBadday />
     }
 
     if (page === "menu") {
