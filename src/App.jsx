@@ -4,7 +4,20 @@ import WidgetPooltime from './widgets/widget-pooltime/WidgetPooltime'
 import WidgetSmartdesk from './widgets/widget-smartdesk/WidgetSmartdesk'
 import WidgetMenu from './widgets/widget-menu/WidgetMenu'
 
-import './App.css'
+import homeIcon from './assets/icons/home-3.svg'
+
+import classes from './App.module.css'
+
+function Layout({children}) {
+    return (
+        <>
+            <button className={classes.button} type="button" onClick={() => props.setPage('quote')}>
+                <img src={homeIcon} alt="quote" className={classes.button__icon} />
+            </button>
+            {children}
+        </>
+    )
+}
 
 export default function App() {
     const [page, setPage] = useState("menu")
@@ -16,6 +29,6 @@ export default function App() {
         smartdesk: <WidgetSmartdesk setPage={setPage} />
     }
 
-    return pages[page]
+    return <Layout>{pages[page]}</Layout>
 }
 

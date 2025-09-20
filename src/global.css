@@ -25,3 +25,10 @@ button {
     justify-content: center;
     align-items: center;
 }
+
+.widget {
+    width: 720px;
+    height: 720px;
+    border-radius: 120px;
+    /* box-shadow: inset 10px; */
+}

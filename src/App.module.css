@@ -1,0 +1,25 @@
+.button {
+    padding: 16px;
+    border-radius: 50%;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+}
+
+.button__icon {
+    width: 64px;
+}
+
+.button, .button__icon {
+    transition: all 0.2s ease-in-out;
+}
+
+.button:hover,
+.button:active {
+    background-color: black;
+}
+
+.button:hover > .button__icon,
+.button:active > .button__icon {
+    filter: invert();
+}
