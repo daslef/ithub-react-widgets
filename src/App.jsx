@@ -1,39 +1,49 @@
-import { useState } from 'react'
-import WidgetQuote from './widgets/widget-quote/WidgetQuote'
-import WidgetPooltime from './widgets/widget-pooltime/WidgetPooltime'
-import WidgetSmartdesk from './widgets/widget-smartdesk/WidgetSmartdesk'
-import WidgetMenu from './widgets/widget-menu/WidgetMenu'
-import WidgetBadday from './widgets/widget-badday/WidgetBadday'
+import { useState } from "react";
+import WidgetQuote from "./widgets/widget-quote/WidgetQuote";
+import WidgetPooltime from "./widgets/widget-pooltime/WidgetPooltime";
+import WidgetSmartdesk from "./widgets/widget-smartdesk/WidgetSmartdesk";
+import WidgetMenu from "./widgets/widget-menu/WidgetMenu";
+import WidgetBadday from "./widgets/widget-badday/WidgetBadday";
+import WidgetLogin from "./widgets/widget-login/WidgetLogin";
 
-import homeIcon from './assets/icons/home-3.svg'
+import homeIcon from "./assets/icons/home-3.svg";
 
-import classes from './App.module.css'
+import classes from "./App.module.css";
 
 function Layout(props) {
-    return (
-        <>
-            <button className={classes.button} type="button" onClick={() => props.setPage('menu')}>
-                <img src={homeIcon} alt="home" className={classes.button__icon} />
-            </button>
-            {props.children}
-        </>
-    )
+  return (
+    <>
+      <button
+        className={classes.button}
+        type="button"
+        onClick={() => props.setPage("menu")}
+      >
+        <img src={homeIcon} alt="home" className={classes.button__icon} />
+      </button>
+      {props.children}
+    </>
+  );
 }
 
 export default function App() {
-    const [page, setPage] = useState("badday")
+  const [user, setUser] = useState(null);
+  const [page, setPage] = useState(!user ? "login" : "menu");
 
-    const pages = {
-        quote: <WidgetQuote />,
-        pooltime: <WidgetPooltime />,
-        smartdesk: <WidgetSmartdesk />,
-        badday: <WidgetBadday />
-    }
+  const publicPages = {
+    login: <WidgetLogin />,
+    menu: <WidgetMenu setPage={setPage} />,
+  };
 
-    if (page === "menu") {
-        return <WidgetMenu setPage={setPage} />
-    }
+  const protectedPages = {
+    quote: <WidgetQuote />,
+    pooltime: <WidgetPooltime />,
+    smartdesk: <WidgetSmartdesk />,
+    badday: <WidgetBadday />,
+  };
 
-    return <Layout setPage={setPage}>{pages[page]}</Layout>
+  if (page in publicPages) {
+    return publicPages[page];
+  }
+
+  return <Layout setPage={setPage}>{protectedPages[page]}</Layout>;
 }
-
