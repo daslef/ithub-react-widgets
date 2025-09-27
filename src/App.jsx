@@ -30,7 +30,7 @@ export default function App() {
   const [page, setPage] = useState(!user ? "login" : "menu");
 
   const publicPages = {
-    login: <WidgetLogin />,
+    login: <WidgetLogin setUser={setUser} setPage={setPage} />,
     menu: <WidgetMenu setPage={setPage} />,
   };
 
