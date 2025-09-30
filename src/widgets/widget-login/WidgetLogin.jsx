@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { login } from "../../providers/auth";
 
-
 export default function WidgetLogin(props) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -11,25 +10,26 @@ export default function WidgetLogin(props) {
     const passwordValue = form.elements.password.value;
 
     try {
-      const user = login({ 
-        login: loginValue, 
-        password: passwordValue 
-      })
+      const user = login({
+        login: loginValue,
+        password: passwordValue,
+      });
 
-      props.setUser(user)
-      props.setPage("menu")
+      props.setUser(user);
+      props.setPage("menu");
     } catch (error) {
-      const { type, message } = JSON.parse(error.message)
-      if (error.message.type === "login") {
-        setLoginError(error.message.message)
-      } else if (error.message.type === "password") {
-        setPasswordError(error.message.message)
+      console.log(error.message);
+      const { type, message } = JSON.parse(error.message);
+      if (type === "login") {
+        setLoginError(message);
+      } else if (type === "password") {
+        setPasswordError(message);
       }
     }
   }
 
-  const [loginError, setLoginError] = useState(null)
-  const [passwordError, setPasswordError] = useState(null)
+  const [loginError, setLoginError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
 
   return (
     <form method="post" onSubmit={handleSubmit}>
