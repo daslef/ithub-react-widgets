@@ -1,0 +1,73 @@
+.widget--smartdesk {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    background: linear-gradient(to bottom, #643F38, #351E1A);
+    padding: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    text-align: center;
+}
+
+.header__office {
+    font-size: 32px;
+    font-weight: 500;
+    color: #D3A096;
+}
+
+.header__heading {
+    font-size: 48px;
+    font-weight: 500;
+    color: #FBF6F5;
+}
+
+.main {
+    text-align: center;
+}
+
+.main__height {
+    font-size: 128px;
+    font-weight: 500;
+    color: #FBF6F5;
+}
+
+.main__heading {
+    font-size: 32px;
+    font-weight: 500;
+    color: #D3A096;
+}
+
+.footer {
+    display: flex;
+    gap: 20px;
+}
+
+.footer__button {
+    height: 168px;
+    flex: 1;
+    background-color: #77463D;
+    border: 5px solid #8E5347;
+    border-radius: 20px;
+    font-size: 50px;
+    color: #FBF6F5;
+    cursor: pointer;
+    user-select: none;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.footer__button--left {
+    border-bottom-left-radius: 80px;
+}
+
+.footer__button--right {
+    border-bottom-right-radius: 80px;
+}
+
+.footer__button--disabled {
+    opacity: 0.2;
+    pointer-events: none;
+}
