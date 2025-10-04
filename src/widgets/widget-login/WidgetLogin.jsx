@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { login } from "../../providers/auth";
 
 export default function WidgetLogin(props) {
@@ -22,14 +22,24 @@ export default function WidgetLogin(props) {
       const { type, message } = JSON.parse(error.message);
       if (type === "login") {
         setLoginError(message);
+        form.reset()
       } else if (type === "password") {
+        setLoginError(null)
         setPasswordError(message);
+        passwordRef.current.value = ""
       }
     }
   }
 
+  const loginRef = useRef()
+  const passwordRef = useRef()
+
   const [loginError, setLoginError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
+
+  useEffect(() => {
+    loginRef.current?.focus()
+  }, [loginRef])
 
   return (
     <form method="post" onSubmit={handleSubmit}>
@@ -37,7 +47,7 @@ export default function WidgetLogin(props) {
         <label htmlFor="" className="entry__label">
           Login
         </label>
-        <input type="text" name="login" className="entry__input" required />
+        <input ref={loginRef} type="text" name="login" className="entry__input" required />
         <span className="entry__error">{loginError}</span>
       </section>
       <section className="entry">
@@ -45,6 +55,7 @@ export default function WidgetLogin(props) {
           Password
         </label>
         <input
+          ref={passwordRef}
           type="password"
           name="password"
           className="entry__input"

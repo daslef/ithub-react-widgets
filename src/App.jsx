@@ -27,7 +27,7 @@ function Layout(props) {
 }
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // TODO
   const [page, setPage] = useState(!user ? "login" : "menu");
 
   const publicPages = {
