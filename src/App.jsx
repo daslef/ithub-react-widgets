@@ -5,6 +5,7 @@ import WidgetSmartdesk from "./widgets/widget-smartdesk/WidgetSmartdesk";
 import WidgetMenu from "./widgets/widget-menu/WidgetMenu";
 import WidgetBadday from "./widgets/widget-badday/WidgetBadday";
 import WidgetLogin from "./widgets/widget-login/WidgetLogin";
+import WidgetStopwatch from "./widgets/widget-stopwatch/WidgetStopwatch";
 
 import homeIcon from "./assets/icons/home-3.svg";
 
@@ -39,6 +40,7 @@ export default function App() {
     pooltime: <WidgetPooltime />,
     smartdesk: <WidgetSmartdesk />,
     badday: <WidgetBadday />,
+    stopwatch: <WidgetStopwatch />
   };
 
   if (page in publicPages) {

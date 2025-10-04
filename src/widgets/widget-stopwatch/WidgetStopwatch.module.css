@@ -1,21 +1,22 @@
-.widget--smartdesk {
+.widget--stopwatch {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 400;
-    background: linear-gradient(to bottom, #643F38, #351E1A);
-    padding: 64px;
+    background: linear-gradient(315deg, #1a1a1a, black);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .header {
+    padding: 60px;
     text-align: center;
 }
 
-.header__office {
-    font-size: 32px;
+.header__date {
+    font-size: 24px;
     font-weight: 500;
-    color: #D3A096;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
 }
 
 .header__heading {
@@ -26,48 +27,39 @@
 
 .main {
     text-align: center;
+    padding: 20px;
 }
 
-.main__height {
-    font-size: 128px;
-    font-weight: 500;
-    color: #FBF6F5;
+.main__time {
+    font-size: 140px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 35px;;
 }
 
-.main__heading {
-    font-size: 32px;
-    font-weight: 500;
-    color: #D3A096;
-}
+.button {
+    border-radius: 24px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
 
-.footer {
-    display: flex;
-    gap: 20px;
-}
-
-.footer__button {
-    height: 168px;
-    flex: 1;
-    background-color: #77463D;
-    border: 5px solid #8E5347;
-    border-radius: 20px;
-    font-size: 50px;
-    color: #FBF6F5;
+    font-size: 64px;
     cursor: pointer;
     user-select: none;
     opacity: 1;
-    transition: opacity 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    padding: 80px 0;
+    width: 100%;
+    font-weight: 600;
 }
 
-.footer__button--left {
-    border-bottom-left-radius: 80px;
+.button--running {
+    background-color: rgba(250, 84, 77, 0.15);
+    color: #FA544D;
+    border: 5px solid rgba(250, 84, 77, 0.1);
 }
 
-.footer__button--right {
-    border-bottom-right-radius: 80px;
-}
-
-.footer__button--disabled {
-    opacity: 0.2;
-    pointer-events: none;
+.button--stopped {
+    background-color: rgba(224, 213, 9, 0.541);
+    color: #ffffff;
+    border: 5px solid rgba(224, 215, 9, 0.1);
 }
