@@ -6,6 +6,7 @@ import WidgetMenu from "./widgets/widget-menu/WidgetMenu";
 import WidgetBadday from "./widgets/widget-badday/WidgetBadday";
 import WidgetLogin from "./widgets/widget-login/WidgetLogin";
 import WidgetStopwatch from "./widgets/widget-stopwatch/WidgetStopwatch";
+import WidgetGithub from "./widgets/widget-github/WidgetGithub";
 
 import homeIcon from "./assets/icons/home-3.svg";
 
@@ -27,7 +28,8 @@ function Layout(props) {
 }
 
 export default function App() {
-  const [user, setUser] = useState(null); // TODO
+  // TODO добавить widget-badday в роутинг
+  const [user, setUser] = useState(true); // TODO
   const [page, setPage] = useState(!user ? "login" : "menu");
 
   const publicPages = {
@@ -40,7 +42,8 @@ export default function App() {
     pooltime: <WidgetPooltime />,
     smartdesk: <WidgetSmartdesk />,
     badday: <WidgetBadday />,
-    stopwatch: <WidgetStopwatch />
+    stopwatch: <WidgetStopwatch />,
+    github: <WidgetGithub />
   };
 
   if (page in publicPages) {

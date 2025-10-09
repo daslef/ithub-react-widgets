@@ -5,7 +5,7 @@ import pooltimeIcon from '../../assets/icons/swimming-goggles.svg'
 import stopwatchIcon from '../../assets/icons/stopwatch.svg'
 
 export default function WidgetMenu(props) {
-
+    // TODO иконку и логику перехода для widget-badday
     return (
         <article className={`widget ${classes["widget--menu"]}`}>
             <button className={classes.button} type="button" onClick={() => props.setPage('quote')}>

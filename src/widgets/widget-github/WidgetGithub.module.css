@@ -1,0 +1,34 @@
+.widget--badday {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    background: linear-gradient(to bottom, #230600, #110604);
+    padding: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer {
+    display: flex;
+    gap: 20px;
+}
+
+.button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(74, 255, 11, 0.5);
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.button_bad {
+    background-color: rgba(255, 28, 28, 0.4);
+}
