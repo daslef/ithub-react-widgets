@@ -2,17 +2,17 @@ import { useState } from 'react'
 import classes from './WidgetGithub.module.css'
 
 function generateData() {
-    function getRandomBoolean() {
-        const randomNumber = Math.random()
-        return randomNumber >= 0.8
+    function getRandomActivity() {
+        const randomNumber = Math.random() * 20
+        return Math.round(randomNumber)
     }
 
     const data = []
 
-    for (let i = 0; i < 88; i++) {
+    for (let i = 0; i < 256; i++) {
         data.push({
             id: i + 1,
-            isBad: getRandomBoolean()
+            activity: getRandomActivity()
         })
     }
 
@@ -20,29 +20,20 @@ function generateData() {
 }
 
 export default function WidgetGithub(props) {
-    function changeIsBad(event) {
-        const baddaysCopy = [...baddays]
-        const dayId = Number(event.target.id)
-        const dayObject = baddaysCopy.find(day => day.id === dayId)
-        dayObject.isBad = !dayObject.isBad
-        
-        setBaddays(baddaysCopy)
-    }
-
-    const [baddays, setBaddays] = useState(generateData)
+    const [activity, setActivity] = useState(generateData)
 
     return (
-        <article className={`widget ${classes["widget--badday"]}`}>
+        <article className={`widget ${classes["widget--github"]}`}>
             <main className={classes.main}>
-                {baddays.map(day => {
-                    const classNames = day.isBad
-                        ? `${classes.button} ${classes.button_bad}`
-                        : `${classes.button}`
-
-                    return <button key={day.id} id={day.id} onClick={changeIsBad} className={classNames}></button>
+                {activity.map(day => {
+                    const opacity = day.activity / 20
+                    return <span key={day.id} id={day.id} className={classes.activity} style={{ opacity }}></span>
                 })}
             </main>
-            <footer className={classes.footer}></footer>
+            <footer className={classes.footer}>
+                <span>50</span>
+                <h2>days of coding</h2>
+            </footer>
         </article>
     )
 }

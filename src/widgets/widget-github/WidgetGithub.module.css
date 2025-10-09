@@ -1,34 +1,40 @@
-.widget--badday {
+.widget--github {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 400;
-    background: linear-gradient(to bottom, #230600, #110604);
-    padding: 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background: white;
+    padding: 7px;
+    box-shadow: inset 0px 0px 10px 10px #C1EBE0;
+    overflow: hidden;
+
 }
 
 .main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    gap: 3px;
+    overflow: hidden;
 }
 
 .footer {
     display: flex;
     gap: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.01);
+    width: 100%;
+    height: 333px;
+    filter: blur(100px);
+    backdrop-filter: blur(100px);
+    overflow: hidden;
 }
 
-.button {
-    width: 40px;
+.activity {
+    width: 100%;
     height: 40px;
-    border-radius: 50%;
-    background-color: rgba(74, 255, 11, 0.5);
-    appearance: none;
+    border-radius: 6px;
+    background-color: #00D093;
     border: 0;
     cursor: pointer;
-}
-
-.button_bad {
-    background-color: rgba(255, 28, 28, 0.4);
 }

@@ -30,7 +30,7 @@ function Layout(props) {
 export default function App() {
   // TODO добавить widget-badday в роутинг
   const [user, setUser] = useState(true); // TODO
-  const [page, setPage] = useState(!user ? "login" : "menu");
+  const [page, setPage] = useState(!user ? "login" : "github");
 
   const publicPages = {
     login: <WidgetLogin setUser={setUser} setPage={setPage} />,
