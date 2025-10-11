@@ -3,6 +3,7 @@ import quoteIcon from '../../assets/icons/quote-double.svg'
 import smartDeskIcon from '../../assets/icons/table.svg'
 import pooltimeIcon from '../../assets/icons/swimming-goggles.svg'
 import stopwatchIcon from '../../assets/icons/stopwatch.svg'
+import githubIcon from '../../assets/icons/github.svg'
 
 export default function WidgetMenu(props) {
     // TODO иконку и логику перехода для widget-badday
@@ -19,6 +20,9 @@ export default function WidgetMenu(props) {
             </button>
             <button className={classes.button} type="button" onClick={() => props.setPage('stopwatch')}>
                 <img src={stopwatchIcon} alt="stopwatch" className={classes.button__icon} />
+            </button>
+            <button className={classes.button} type="button" onClick={() => props.setPage('github')}>
+                <img src={githubIcon} alt="github activity" className={classes.button__icon} />
             </button>
         </article>
     )

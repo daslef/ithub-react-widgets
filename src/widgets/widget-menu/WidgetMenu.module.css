@@ -3,12 +3,10 @@
     font-weight: 400;
     background: linear-gradient(to bottom, #643F38, #351E1A);
     padding: 64px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 64px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 96px;
 }
 
 .button {

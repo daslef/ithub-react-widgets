@@ -27,10 +27,10 @@ function Layout(props) {
   );
 }
 
-export default function App() {
+export default function App({ apolloClient }) {
   // TODO добавить widget-badday в роутинг
   const [user, setUser] = useState(true); // TODO
-  const [page, setPage] = useState(!user ? "login" : "menu");
+  const [page, setPage] = useState(!user ? "login" : "github");
 
   const publicPages = {
     login: <WidgetLogin setUser={setUser} setPage={setPage} />,
@@ -43,7 +43,7 @@ export default function App() {
     smartdesk: <WidgetSmartdesk />,
     badday: <WidgetBadday />,
     stopwatch: <WidgetStopwatch />,
-    github: <WidgetGithub />
+    github: <WidgetGithub apolloClient={apolloClient} />
   };
 
   if (page in publicPages) {
