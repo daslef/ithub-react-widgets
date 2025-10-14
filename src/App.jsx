@@ -5,6 +5,8 @@ import WidgetSmartdesk from "./widgets/widget-smartdesk/WidgetSmartdesk";
 import WidgetMenu from "./widgets/widget-menu/WidgetMenu";
 import WidgetBadday from "./widgets/widget-badday/WidgetBadday";
 import WidgetLogin from "./widgets/widget-login/WidgetLogin";
+import WidgetStopwatch from "./widgets/widget-stopwatch/WidgetStopwatch";
+import WidgetGithub from "./widgets/widget-github/WidgetGithub";
 
 import homeIcon from "./assets/icons/home-3.svg";
 
@@ -25,9 +27,10 @@ function Layout(props) {
   );
 }
 
-export default function App() {
-  const [user, setUser] = useState(null);
-  const [page, setPage] = useState(!user ? "login" : "menu");
+export default function App({ apolloClient }) {
+  // TODO добавить widget-badday в роутинг
+  const [user, setUser] = useState(true); // TODO
+  const [page, setPage] = useState(!user ? "login" : "github");
 
   useEffect(() => {
     const userValue = localStorage.getItem("WIDGETS__USER");
@@ -68,6 +71,8 @@ export default function App() {
     pooltime: <WidgetPooltime />,
     smartdesk: <WidgetSmartdesk />,
     badday: <WidgetBadday />,
+    stopwatch: <WidgetStopwatch />,
+    github: <WidgetGithub apolloClient={apolloClient} />
   };
 
   if (page in publicPages) {

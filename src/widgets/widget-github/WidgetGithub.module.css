@@ -1,0 +1,39 @@
+.widget--github {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    background: white;
+    padding: 7px;
+    box-shadow: inset 0px 0px 10px 10px #C1EBE0;
+    overflow: hidden;
+
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    gap: 3px;
+    overflow: hidden;
+}
+
+.footer {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.01);
+    width: 100%;
+    height: 333px;
+    backdrop-filter: blur(100px);
+    overflow: hidden;
+}
+
+.activity {
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    background-color: #00D093;
+    border: 0;
+    cursor: pointer;
+}
