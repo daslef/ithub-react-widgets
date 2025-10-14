@@ -18,7 +18,6 @@ export default function WidgetLogin(props) {
       props.setUser(user);
       props.setPage("menu");
     } catch (error) {
-      console.log(error.message);
       const { type, message } = JSON.parse(error.message);
       if (type === "login") {
         setLoginError(message);

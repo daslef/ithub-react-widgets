@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WidgetQuote from "./widgets/widget-quote/WidgetQuote";
 import WidgetPooltime from "./widgets/widget-pooltime/WidgetPooltime";
 import WidgetSmartdesk from "./widgets/widget-smartdesk/WidgetSmartdesk";
@@ -28,6 +28,35 @@ function Layout(props) {
 export default function App() {
   const [user, setUser] = useState(null);
   const [page, setPage] = useState(!user ? "login" : "menu");
+
+  useEffect(() => {
+    const userValue = localStorage.getItem("WIDGETS__USER");
+
+    if (userValue === null) {
+      return;
+    }
+
+    const user = JSON.parse(userValue);
+
+    setUser(user);
+  }, []);
+
+  useEffect(() => {
+    if (!user) {
+      return;
+    }
+
+    setPage("menu");
+
+    localStorage.setItem(
+      "WIDGETS__USER",
+      JSON.stringify({
+        login: "user1",
+        password: "user1password",
+        username: "Teddy Bear",
+      })
+    );
+  }, [user]);
 
   const publicPages = {
     login: <WidgetLogin setUser={setUser} setPage={setPage} />,
