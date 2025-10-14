@@ -7,6 +7,7 @@ import WidgetBadday from "./widgets/widget-badday/WidgetBadday";
 import WidgetLogin from "./widgets/widget-login/WidgetLogin";
 import WidgetStopwatch from "./widgets/widget-stopwatch/WidgetStopwatch";
 import WidgetGithub from "./widgets/widget-github/WidgetGithub";
+import WidgetQuizcard from "./widgets/widget-quizcard/WidgetQuizcard";
 
 import homeIcon from "./assets/icons/home-3.svg";
 
@@ -72,7 +73,8 @@ export default function App({ apolloClient }) {
     smartdesk: <WidgetSmartdesk />,
     badday: <WidgetBadday />,
     stopwatch: <WidgetStopwatch />,
-    github: <WidgetGithub apolloClient={apolloClient} />
+    github: <WidgetGithub apolloClient={apolloClient} />,
+    quizcard: <WidgetQuizcard />,
   };
 
   if (page in publicPages) {

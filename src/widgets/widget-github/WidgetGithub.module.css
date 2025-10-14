@@ -5,7 +5,6 @@
     padding: 7px;
     box-shadow: inset 0px 0px 10px 10px #C1EBE0;
     overflow: hidden;
-
 }
 
 .main {
@@ -16,6 +15,7 @@
     border-bottom-left-radius: 120px;
     border-bottom-right-radius: 120px;
     overflow: hidden;
+    margin-bottom: 7px;
 }
 
 .footer {
@@ -32,6 +32,13 @@
     border-bottom-left-radius: 120px;
     border-bottom-right-radius: 120px;
     overflow: hidden;
+    align-items: baseline;
+    padding-left: 20px;
+}
+
+.total {
+    font-size: 96px;
+    font-weight: bold;
 }
 
 .activity {
