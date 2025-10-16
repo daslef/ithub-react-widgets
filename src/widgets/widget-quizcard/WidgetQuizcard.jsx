@@ -23,7 +23,7 @@ const INITIAL_STATE = {
   currentIndex: 0
 }
 
-export default function WidgetQuizcard(props) {
+export default function WidgetQuizcard() {
   const [state, dispatch] = useReducer(quizReducer, INITIAL_STATE)
 
   let decreaseButtonClasses = `${classes.footer__button} ${classes["footer__button--left"]} `;
@@ -37,7 +37,7 @@ export default function WidgetQuizcard(props) {
     <article className={`widget ${classes["widget--quizcard"]}`}>
       <div className={classes.header}>
         <h2 className={classes.header__heading}>
-          {state.currentIndex + 1}. {state.isTranslate ? quizCards[state.currentIndex].translation : quizCards[state.currentIndex].word}
+          {state.currentIndex + 1}. {quizCards[state.currentIndex][state.isTranslate ? "translation" : "word"]}
         </h2>
 
         {!state.isTranslate && (

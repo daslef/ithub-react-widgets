@@ -7,3 +7,8 @@
 - Хранить данные о высоте стола в local-storage
 - Завершить стилизацию виджета ...
 - Реализовать с нуля виджет ...
+
+
+- widget-quizcard: делать кнопку Translate неактивной в случае, если мы уже в режиме перевода
+- widget-stopwatch: перевести на useReducer
+- widget-smartdesk: перевести на useReducer
