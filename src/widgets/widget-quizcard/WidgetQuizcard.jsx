@@ -1,58 +1,72 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import classes from "./WidgetQuizcard.module.css";
 import { quizCards } from "../../providers/data";
 
+function quizReducer(state, event) {
+  switch (event.type) {
+    case "TRANSLATE":
+      return {
+        ...state,
+        isTranslate: true
+      }
+    case "NEXT_CARD":
+      return {
+        ...state,
+        isTranslate: false,
+        currentIndex: state.currentIndex + 1
+      }
+  }
+}
+
+const INITIAL_STATE = {
+  isTranslate: false,
+  currentIndex: 0
+}
+
 export default function WidgetQuizcard(props) {
-  function translate() {
-    setIsTranslate((current) => !current);
-  }
-
-  function next() {
-    setIsTranslate(false);
-    setCurrentIndex((current) => current + 1);
-  }
-
-  const [value, setValue] = useState(25);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTranslate, setIsTranslate] = useState(false);
+  const [state, dispatch] = useReducer(quizReducer, INITIAL_STATE)
 
   let decreaseButtonClasses = `${classes.footer__button} ${classes["footer__button--left"]} `;
   let increaseButtonClasses = `${classes.footer__button} ${classes["footer__button--right"]} `;
 
-  if (quizCards.length - 1 === currentIndex) {
+  if (quizCards.length - 1 === state.currentIndex) {
     increaseButtonClasses += classes["footer__button--disabled"];
   }
 
   return (
     <article className={`widget ${classes["widget--quizcard"]}`}>
       <div className={classes.header}>
-        {isTranslate ? (
-          <h2 className={classes.header__heading}>
-            {currentIndex + 1}. {quizCards[currentIndex].translation}
-          </h2>
-        ) : (
-          <h2 className={classes.header__heading}>
-            {currentIndex + 1}. {quizCards[currentIndex].word}
-          </h2>
-        )}
+        <h2 className={classes.header__heading}>
+          {state.currentIndex + 1}. {state.isTranslate ? quizCards[state.currentIndex].translation : quizCards[state.currentIndex].word}
+        </h2>
 
-        {!isTranslate && (
+        {!state.isTranslate && (
           <p className={classes.header__office}>
-            {quizCards[currentIndex].description}
+            {quizCards[state.currentIndex].description}
           </p>
         )}
       </div>
       <section className={classes.main}>
         <p className={classes.main__height}>
-          {quizCards[currentIndex].difficulty}
+          {quizCards[state.currentIndex].difficulty}
         </p>
         <p className={classes.main__heading}>Voice</p>
       </section>
       <section className={classes.footer}>
-        <button onClick={translate} className={decreaseButtonClasses}>
+        <button
+          onClick={() => {
+            dispatch({ type: "TRANSLATE" })
+          }}
+          className={decreaseButtonClasses}
+        >
           Translate
         </button>
-        <button onClick={next} className={increaseButtonClasses}>
+        <button
+          onClick={() => {
+            dispatch({ type: "NEXT_CARD" })
+          }}
+          className={increaseButtonClasses}
+        >
           Next
         </button>
       </section>
