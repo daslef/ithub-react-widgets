@@ -14,12 +14,13 @@
 
 .header__office {
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 400;
+    text-align: left;
     color: #D3A096;
 }
 
 .header__heading {
-    font-size: 48px;
+    font-size: 44px;
     font-weight: 500;
     color: #FBF6F5;
 }
