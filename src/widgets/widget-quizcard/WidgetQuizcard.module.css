@@ -25,19 +25,24 @@
 }
 
 .main {
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
 
-.main__height {
-    font-size: 128px;
+.main__difficulty {
+    font-size: 64px;
     font-weight: 500;
     color: #FBF6F5;
 }
 
-.main__heading {
+.main__button {
     font-size: 32px;
     font-weight: 500;
     color: #D3A096;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 20px;
+    padding: 16px;
 }
 
 .footer {

@@ -1,9 +1,16 @@
-import { useState, useReducer } from "react";
+import { useReducer } from "react";
 import classes from "./WidgetQuizcard.module.css";
 import { quizCards } from "../../providers/data";
 
 function quizReducer(state, event) {
   switch (event.type) {
+    case "SPEAK":
+      const word = quizCards[state.currentIndex].word
+      const speech = new window.SpeechSynthesisUtterance(word)
+      speech.lang = "en"
+      window.speechSynthesis.speak(speech)
+
+      return state
     case "TRANSLATE":
       return {
         ...state,
@@ -47,10 +54,15 @@ export default function WidgetQuizcard() {
         )}
       </div>
       <section className={classes.main}>
-        <p className={classes.main__height}>
+        <p className={classes.main__difficulty}>
           {quizCards[state.currentIndex].difficulty}
         </p>
-        <p className={classes.main__heading}>Voice</p>
+        <button 
+          className={classes.main__button} 
+          onClick={() => {
+            dispatch({ type: "SPEAK" })
+          }
+        }>Voice</button>
       </section>
       <section className={classes.footer}>
         <button
